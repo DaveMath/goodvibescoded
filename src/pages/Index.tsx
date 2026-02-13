@@ -70,7 +70,7 @@ const Index = () => {
           </defs>
           <text
             fill="hsl(25 50% 30%)"
-            style={{ fontFamily: "'Bungee Shade', cursive", fontSize: "36px", letterSpacing: "2px" }}
+            style={{ fontFamily: "'Bubblegum Sans', cursive", fontSize: "40px", letterSpacing: "3px" }}
           >
             <textPath href="#arc" startOffset="50%" textAnchor="middle">
               {ARC_TEXT}
