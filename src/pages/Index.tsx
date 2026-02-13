@@ -4,6 +4,7 @@ import retroSun from "@/assets/retro-sun.png";
 import macrameLeft from "@/assets/macrame-left.png";
 import macrameRight from "@/assets/macrame-right.png";
 import FloatingParticles from "@/components/FloatingParticles";
+import VisitorInfo from "@/components/VisitorInfo";
 
 const WORDS = [
   "Cheaply", "Wrongly", "Insecurely", "Recklessly", "Hastily",
@@ -334,6 +335,7 @@ const Index = () => {
           </a>{" "}
           creation.
         </p>
+        <VisitorInfo />
       </footer>
     </main>
   );
