@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import arcText from "@/assets/good-vibes-coded-arc.png";
+import retroSun from "@/assets/retro-sun.png";
 
 const WORDS = [
   "Cheaply", "Wrongly", "Insecurely", "Recklessly", "Hastily",
@@ -6,8 +8,6 @@ const WORDS = [
   "Hallucinated", "Vibed", "Copy-Pasted", "Untested", "Spaghetti'd",
   "Yeet'd", "Procrastinated", "Over-Engineered", "Under-Documented",
 ];
-
-const ARC_TEXT = "Good Vibes Coded";
 
 const Index = () => {
   const [wordIndex, setWordIndex] = useState(0);
@@ -24,13 +24,13 @@ const Index = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Generate starburst rays
+  // Starburst rays
   const rays = Array.from({ length: 24 }, (_, i) => {
     const angle = (i * 360) / 24;
     return (
       <div
         key={i}
-        className="absolute top-1/2 left-1/2 origin-bottom-center"
+        className="absolute top-1/2 left-1/2"
         style={{
           width: "0",
           height: "0",
@@ -38,8 +38,8 @@ const Index = () => {
           borderRight: "30px solid transparent",
           borderBottom: `max(50vw, 50vh) solid`,
           borderBottomColor: i % 2 === 0
-            ? "hsl(45 95% 58% / 0.35)"
-            : "hsl(35 90% 55% / 0.25)",
+            ? "hsl(45 95% 58% / 0.2)"
+            : "hsl(35 90% 55% / 0.15)",
           transform: `translate(-50%, -100%) rotate(${angle}deg)`,
           transformOrigin: "bottom center",
         }}
@@ -47,56 +47,47 @@ const Index = () => {
     );
   });
 
-  // Arc text using SVG
-  const arcLetters = ARC_TEXT.split("");
-
   return (
     <main className="relative min-h-screen overflow-hidden flex flex-col items-center justify-center"
-      style={{ background: "hsl(40 60% 92%)" }}>
+      style={{ background: "#EDE4CD" }}>
 
       {/* Starburst rays */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 0 }} aria-hidden="true">
         {rays}
+        {/* Center fade to hide rays behind content */}
+        <div className="absolute inset-0" style={{
+          background: "radial-gradient(ellipse 65% 60% at center, #EDE4CD 0%, #EDE4CD 60%, transparent 85%)",
+        }} />
       </div>
 
       {/* Main content */}
-      <div className="relative z-10 flex flex-col items-center justify-center flex-1 w-full">
+      <div className="relative flex flex-col items-center justify-center flex-1 w-full" style={{ zIndex: 2 }}>
 
-        {/* Arc text above sun */}
-        <svg viewBox="0 0 400 200" className="w-[340px] sm:w-[420px] md:w-[500px] mb-[-60px] sm:mb-[-80px] z-20"
-          aria-label="Good Vibes Coded">
-          <defs>
-            <path id="arc" d="M 30,180 A 170,170 0 0,1 370,180" fill="none" />
-          </defs>
-          <text
-            fill="hsl(25 50% 30%)"
-            style={{ fontFamily: "'Bubblegum Sans', cursive", fontSize: "40px", letterSpacing: "3px" }}
-          >
-            <textPath href="#arc" startOffset="50%" textAnchor="middle">
-              {ARC_TEXT}
-            </textPath>
-          </text>
-        </svg>
+        {/* Arc text artwork */}
+        <img
+          src={arcText}
+          alt="Good Vibes Coded"
+          className="w-[320px] sm:w-[440px] md:w-[540px] mb-[-40px] sm:mb-[-50px] relative"
+          style={{ zIndex: 20, WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%), linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)", WebkitMaskComposite: "destination-in", maskImage: "linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%), linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)", maskComposite: "intersect" }}
+        />
 
-        {/* Sun circle */}
-        <div
-          className="relative rounded-full flex items-center justify-center z-10"
-          style={{
-            width: "clamp(220px, 40vw, 360px)",
-            height: "clamp(220px, 40vw, 360px)",
-            background: "radial-gradient(circle at 40% 35%, hsl(50 95% 65%), hsl(45 95% 58%) 40%, hsl(35 90% 55%) 70%, hsl(20 80% 50%))",
-            boxShadow: "0 0 60px hsl(45 95% 58% / 0.5), 0 0 120px hsl(35 90% 55% / 0.3)",
-            animation: "pulse-glow 4s ease-in-out infinite",
-          }}
-        >
-          {/* Rotating word */}
-          <div className="text-center px-6">
+        {/* 3D Sun artwork */}
+        <div className="relative flex items-center justify-center" style={{ zIndex: 10 }}>
+          <img
+            src={retroSun}
+            alt="Retro 3D Sun"
+            className="w-[280px] sm:w-[380px] md:w-[440px]"
+            style={{ animation: "pulse-glow 4s ease-in-out infinite", WebkitMaskImage: "radial-gradient(circle, black 50%, transparent 80%)", maskImage: "radial-gradient(circle, black 50%, transparent 80%)" }}
+          />
+          {/* Rotating word overlaid on sun */}
+          <div className="absolute inset-0 flex items-center justify-center">
             <span
-              className="block font-bold transition-all duration-400"
+              className="block font-bold text-center px-4"
               style={{
                 fontFamily: "'Fredoka', sans-serif",
-                fontSize: "clamp(1.6rem, 4vw, 2.8rem)",
+                fontSize: "clamp(1.4rem, 3.5vw, 2.4rem)",
                 color: "hsl(25 50% 30%)",
+                textShadow: "0 2px 8px hsl(45 95% 58% / 0.5)",
                 opacity: visible ? 1 : 0,
                 transform: visible ? "scale(1)" : "scale(0.85)",
                 transition: "opacity 0.4s ease, transform 0.4s ease",
@@ -107,7 +98,7 @@ const Index = () => {
           </div>
         </div>
 
-        {/* "Coded" label under sun for context */}
+        {/* Tagline */}
         <p
           className="mt-4 text-lg sm:text-xl tracking-widest uppercase z-10"
           style={{
