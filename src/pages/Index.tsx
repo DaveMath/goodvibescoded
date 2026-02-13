@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import arcText from "@/assets/good-vibes-coded-arc.png";
 import retroSun from "@/assets/retro-sun.png";
+import macrameLeft from "@/assets/macrame-left.png";
+import macrameRight from "@/assets/macrame-right.png";
 
 const WORDS = [
   "Cheaply", "Wrongly", "Insecurely", "Recklessly", "Hastily",
@@ -107,9 +109,25 @@ const Index = () => {
             color: "hsl(25 50% 30% / 0.7)",
           }}
         >
-          ...but coded ✌️
+          ...but coded 🤞
         </p>
       </div>
+
+      {/* Macrame plants */}
+      <img
+        src={macrameLeft}
+        alt=""
+        className="absolute bottom-0 left-0 w-[120px] sm:w-[160px] md:w-[200px] pointer-events-none"
+        style={{ zIndex: 3, mixBlendMode: "multiply", WebkitMaskImage: "linear-gradient(to right, black 40%, transparent 100%), linear-gradient(to top, black 60%, transparent 95%)", WebkitMaskComposite: "destination-in", maskImage: "linear-gradient(to right, black 40%, transparent 100%), linear-gradient(to top, black 60%, transparent 95%)", maskComposite: "intersect" }}
+        aria-hidden="true"
+      />
+      <img
+        src={macrameRight}
+        alt=""
+        className="absolute bottom-0 right-0 w-[120px] sm:w-[160px] md:w-[200px] pointer-events-none"
+        style={{ zIndex: 3, mixBlendMode: "multiply", WebkitMaskImage: "linear-gradient(to left, black 40%, transparent 100%), linear-gradient(to top, black 60%, transparent 95%)", WebkitMaskComposite: "destination-in", maskImage: "linear-gradient(to left, black 40%, transparent 100%), linear-gradient(to top, black 60%, transparent 95%)", maskComposite: "intersect" }}
+        aria-hidden="true"
+      />
 
       {/* Footer */}
       <footer className="relative z-10 pb-6 pt-8 text-center">
