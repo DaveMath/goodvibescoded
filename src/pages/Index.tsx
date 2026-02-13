@@ -276,7 +276,7 @@ const Index = () => {
 
       {/* Macrame plants with parallax */}
       <div
-        className="absolute top-[15%] sm:top-[10%] left-2 sm:left-4 w-[120px] sm:w-[160px] md:w-[200px] cursor-pointer"
+        className="absolute top-[15%] sm:top-[10%] left-[-20px] sm:left-[-10px] w-[160px] sm:w-[200px] md:w-[240px] cursor-pointer"
         style={{
           zIndex: 3,
           transformOrigin: "top center",
@@ -293,11 +293,11 @@ const Index = () => {
         onTouchStart={(e) => { e.currentTarget.style.animation = "none"; e.currentTarget.style.transform = "rotate(8deg)"; setTimeout(() => { if (e.currentTarget) { e.currentTarget.style.transform = "rotate(0deg)"; setTimeout(() => { if (e.currentTarget) e.currentTarget.style.animation = "sway-left 4s ease-in-out infinite"; }, 600); } }, 800); }}
       >
         <img src={macrameLeft} alt="" className="w-full"
-          style={{ mixBlendMode: "multiply", WebkitMaskImage: "linear-gradient(to right, black 40%, transparent 100%), linear-gradient(to bottom, black 70%, transparent 95%)", WebkitMaskComposite: "destination-in", maskImage: "linear-gradient(to right, black 40%, transparent 100%), linear-gradient(to bottom, black 70%, transparent 95%)", maskComposite: "intersect" }}
+          style={{ mixBlendMode: "multiply", filter: "contrast(1.3) saturate(1.2)", WebkitMaskImage: "linear-gradient(to right, black 0%, black 40%, transparent 100%), linear-gradient(to bottom, black 0%, black 60%, transparent 95%)", WebkitMaskComposite: "destination-in", maskImage: "linear-gradient(to right, black 0%, black 40%, transparent 100%), linear-gradient(to bottom, black 0%, black 60%, transparent 95%)", maskComposite: "intersect" }}
           aria-hidden="true" />
       </div>
       <div
-        className="absolute top-[15%] sm:top-[10%] right-2 sm:right-4 w-[120px] sm:w-[160px] md:w-[200px] cursor-pointer"
+        className="absolute top-[15%] sm:top-[10%] right-[-20px] sm:right-[-10px] w-[160px] sm:w-[200px] md:w-[240px] cursor-pointer"
         style={{
           zIndex: 3,
           transformOrigin: "top center",
@@ -314,7 +314,7 @@ const Index = () => {
         onTouchStart={(e) => { e.currentTarget.style.animation = "none"; e.currentTarget.style.transform = "rotate(-8deg)"; setTimeout(() => { if (e.currentTarget) { e.currentTarget.style.transform = "rotate(0deg)"; setTimeout(() => { if (e.currentTarget) e.currentTarget.style.animation = "sway-right 4.5s ease-in-out infinite"; }, 600); } }, 800); }}
       >
         <img src={macrameRight} alt="" className="w-full"
-          style={{ mixBlendMode: "multiply", WebkitMaskImage: "linear-gradient(to left, black 40%, transparent 100%), linear-gradient(to bottom, black 70%, transparent 95%)", WebkitMaskComposite: "destination-in", maskImage: "linear-gradient(to left, black 40%, transparent 100%), linear-gradient(to bottom, black 70%, transparent 95%)", maskComposite: "intersect" }}
+          style={{ mixBlendMode: "multiply", filter: "contrast(1.3) saturate(1.2)", WebkitMaskImage: "linear-gradient(to left, black 0%, black 40%, transparent 100%), linear-gradient(to bottom, black 0%, black 60%, transparent 95%)", WebkitMaskComposite: "destination-in", maskImage: "linear-gradient(to left, black 0%, black 40%, transparent 100%), linear-gradient(to bottom, black 0%, black 60%, transparent 95%)", maskComposite: "intersect" }}
           aria-hidden="true" />
       </div>
 
