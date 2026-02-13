@@ -115,11 +115,11 @@ const Index = () => {
 
       {/* Macrame plants - hanging from top */}
       <div
-        className="absolute top-0 left-2 sm:left-4 w-[120px] sm:w-[160px] md:w-[200px] cursor-pointer"
-        style={{ zIndex: 3, transformOrigin: "top center", transition: "transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }}
-        onMouseEnter={(e) => e.currentTarget.style.transform = "rotate(5deg)"}
-        onMouseLeave={(e) => e.currentTarget.style.transform = "rotate(0deg)"}
-        onTouchStart={(e) => { e.currentTarget.style.transform = "rotate(5deg)"; setTimeout(() => { if (e.currentTarget) e.currentTarget.style.transform = "rotate(0deg)"; }, 800); }}
+        className="absolute top-[15%] sm:top-[10%] left-2 sm:left-4 w-[120px] sm:w-[160px] md:w-[200px] cursor-pointer"
+        style={{ zIndex: 3, transformOrigin: "top center", animation: "sway-left 4s ease-in-out infinite", transition: "transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }}
+        onMouseEnter={(e) => { e.currentTarget.style.animation = "none"; e.currentTarget.style.transform = "rotate(8deg)"; }}
+        onMouseLeave={(e) => { e.currentTarget.style.transform = "rotate(0deg)"; setTimeout(() => { if (e.currentTarget) e.currentTarget.style.animation = "sway-left 4s ease-in-out infinite"; }, 600); }}
+        onTouchStart={(e) => { e.currentTarget.style.animation = "none"; e.currentTarget.style.transform = "rotate(8deg)"; setTimeout(() => { if (e.currentTarget) { e.currentTarget.style.transform = "rotate(0deg)"; setTimeout(() => { if (e.currentTarget) e.currentTarget.style.animation = "sway-left 4s ease-in-out infinite"; }, 600); } }, 800); }}
       >
         <img
           src={macrameLeft}
@@ -130,11 +130,11 @@ const Index = () => {
         />
       </div>
       <div
-        className="absolute top-0 right-2 sm:right-4 w-[120px] sm:w-[160px] md:w-[200px] cursor-pointer"
-        style={{ zIndex: 3, transformOrigin: "top center", transition: "transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }}
-        onMouseEnter={(e) => e.currentTarget.style.transform = "rotate(-5deg)"}
-        onMouseLeave={(e) => e.currentTarget.style.transform = "rotate(0deg)"}
-        onTouchStart={(e) => { e.currentTarget.style.transform = "rotate(-5deg)"; setTimeout(() => { if (e.currentTarget) e.currentTarget.style.transform = "rotate(0deg)"; }, 800); }}
+        className="absolute top-[15%] sm:top-[10%] right-2 sm:right-4 w-[120px] sm:w-[160px] md:w-[200px] cursor-pointer"
+        style={{ zIndex: 3, transformOrigin: "top center", animation: "sway-right 4.5s ease-in-out infinite", transition: "transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }}
+        onMouseEnter={(e) => { e.currentTarget.style.animation = "none"; e.currentTarget.style.transform = "rotate(-8deg)"; }}
+        onMouseLeave={(e) => { e.currentTarget.style.transform = "rotate(0deg)"; setTimeout(() => { if (e.currentTarget) e.currentTarget.style.animation = "sway-right 4.5s ease-in-out infinite"; }, 600); }}
+        onTouchStart={(e) => { e.currentTarget.style.animation = "none"; e.currentTarget.style.transform = "rotate(-8deg)"; setTimeout(() => { if (e.currentTarget) { e.currentTarget.style.transform = "rotate(0deg)"; setTimeout(() => { if (e.currentTarget) e.currentTarget.style.animation = "sway-right 4.5s ease-in-out infinite"; }, 600); } }, 800); }}
       >
         <img
           src={macrameRight}

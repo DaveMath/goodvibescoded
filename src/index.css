@@ -90,3 +90,13 @@
   0%, 100% { filter: drop-shadow(0 0 20px hsl(45 95% 58% / 0.4)); }
   50% { filter: drop-shadow(0 0 40px hsl(35 90% 55% / 0.6)); }
 }
+
+@keyframes sway-left {
+  0%, 100% { transform: rotate(-1.5deg); }
+  50% { transform: rotate(2deg); }
+}
+
+@keyframes sway-right {
+  0%, 100% { transform: rotate(1.5deg); }
+  50% { transform: rotate(-2deg); }
+}
