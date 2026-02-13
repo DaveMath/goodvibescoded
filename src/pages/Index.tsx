@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import arcText from "@/assets/good-vibes-coded-arc.png";
 import retroSun from "@/assets/retro-sun.png";
 import macrameLeft from "@/assets/macrame-left.png";
 import macrameRight from "@/assets/macrame-right.png";
@@ -11,96 +12,6 @@ const WORDS = [
 ];
 
 const RAY_COUNT = WORDS.length;
-
-const ARC_TEXT = "GOOD VIBES CODED";
-const ARC_LETTERS = ARC_TEXT.split("");
-const ARC_START_ANGLE = -90; // degrees, centered at top
-const ARC_SPREAD = 180; // total arc spread in degrees
-
-const ArcText = () => {
-  const [popped, setPopped] = useState<Set<number>>(new Set());
-  const [allDone, setAllDone] = useState(false);
-  const [frozen, setFrozen] = useState(false);
-  const totalLetters = ARC_LETTERS.filter((l) => l !== " ").length;
-
-  const handlePop = useCallback((index: number) => {
-    if (frozen || ARC_LETTERS[index] === " ") return;
-    setPopped((prev) => {
-      const next = new Set(prev);
-      next.add(index);
-      return next;
-    });
-  }, [frozen]);
-
-  useEffect(() => {
-    const poppedNonSpace = [...popped].filter((i) => ARC_LETTERS[i] !== " ").length;
-    if (poppedNonSpace >= totalLetters && !allDone) {
-      setAllDone(true);
-      setFrozen(true);
-      setTimeout(() => {
-        setAllDone(false);
-        setFrozen(false);
-        setPopped(new Set());
-      }, 2500);
-    }
-  }, [popped, totalLetters, allDone]);
-
-  const radius = 160; // px
-
-  return (
-    <div
-      className="relative w-[320px] sm:w-[440px] md:w-[540px] mb-[-40px] sm:mb-[-50px]"
-      style={{ zIndex: 20, height: "180px" }}
-    >
-      <div className="absolute inset-0 flex items-end justify-center" style={{ height: "100%" }}>
-        {ARC_LETTERS.map((letter, i) => {
-          const step = ARC_SPREAD / (ARC_LETTERS.length - 1);
-          const angle = ARC_START_ANGLE + i * step;
-          const rad = (angle * Math.PI) / 180;
-          const x = Math.cos(rad) * radius;
-          const y = Math.sin(rad) * radius;
-          const isSpace = letter === " ";
-          const isPopped = popped.has(i);
-
-          return (
-            <span
-              key={i}
-              className="absolute select-none"
-              style={{
-                left: "50%",
-                bottom: "0%",
-                fontFamily: "'Fredoka', sans-serif",
-                fontWeight: 700,
-                fontSize: "clamp(1.1rem, 2.8vw, 1.8rem)",
-                color: allDone
-                  ? "hsl(25 50% 30%)"
-                  : isPopped
-                    ? "hsl(20 80% 50%)"
-                    : "hsl(25 50% 30% / 0.3)",
-                transform: `translate(-50%, 0) translate(${x}px, ${y}px) rotate(${angle + 90}deg) ${isPopped && !allDone ? "scale(1.3)" : "scale(1)"}`,
-                transition: allDone
-                  ? "color 0.6s ease, transform 0.6s ease, opacity 0.6s ease"
-                  : "color 0.2s ease, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)",
-                cursor: isSpace ? "default" : "pointer",
-                opacity: allDone ? 1 : isPopped ? 1 : 0.4,
-                textShadow: isPopped && !allDone
-                  ? "0 0 12px hsl(45 95% 58% / 0.6)"
-                  : allDone
-                    ? "0 2px 8px hsl(45 95% 58% / 0.3)"
-                    : "none",
-                pointerEvents: isSpace ? "none" : "auto",
-              }}
-              onMouseEnter={() => handlePop(i)}
-              onTouchStart={() => handlePop(i)}
-            >
-              {letter}
-            </span>
-          );
-        })}
-      </div>
-    </div>
-  );
-};
 
 const Index = () => {
   const [wordIndex, setWordIndex] = useState(0);
@@ -186,7 +97,13 @@ const Index = () => {
       {/* Main content */}
       <div className="relative flex flex-col items-center justify-center flex-1 w-full" style={{ zIndex: 2 }}>
 
-        <ArcText />
+        {/* Arc text artwork */}
+        <img
+          src={arcText}
+          alt="Good Vibes Coded"
+          className="w-[320px] sm:w-[440px] md:w-[540px] mb-[-40px] sm:mb-[-50px] relative"
+          style={{ zIndex: 20, WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%), linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)", WebkitMaskComposite: "destination-in", maskImage: "linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%), linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)", maskComposite: "intersect" }}
+        />
 
         {/* 3D Sun artwork */}
         <div className="relative flex items-center justify-center" style={{ zIndex: 10 }}>
