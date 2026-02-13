@@ -294,7 +294,7 @@ const Index = () => {
         onTouchStart={(e) => { e.currentTarget.style.animation = "none"; e.currentTarget.style.transform = "rotate(8deg)"; setTimeout(() => { if (e.currentTarget) { e.currentTarget.style.transform = "rotate(0deg)"; setTimeout(() => { if (e.currentTarget) e.currentTarget.style.animation = "sway-left 4s ease-in-out infinite"; }, 600); } }, 800); }}
       >
         <img src={macrameLeft} alt="" className="w-full"
-          style={{ mixBlendMode: "multiply", filter: "contrast(1.3) saturate(1.2)", WebkitMaskImage: "linear-gradient(to right, black 0%, black 40%, transparent 100%), linear-gradient(to bottom, black 0%, black 60%, transparent 95%)", WebkitMaskComposite: "destination-in", maskImage: "linear-gradient(to right, black 0%, black 40%, transparent 100%), linear-gradient(to bottom, black 0%, black 60%, transparent 95%)", maskComposite: "intersect" }}
+          style={{ mixBlendMode: "multiply", filter: "contrast(1.2) saturate(1.1)", WebkitMaskImage: "linear-gradient(to right, black 0%, black 50%, transparent 100%), linear-gradient(to bottom, black 0%, black 70%, transparent 95%)", WebkitMaskComposite: "destination-in", maskImage: "linear-gradient(to right, black 0%, black 50%, transparent 100%), linear-gradient(to bottom, black 0%, black 70%, transparent 95%)", maskComposite: "intersect" }}
           aria-hidden="true" />
       </div>
       <div
@@ -315,7 +315,7 @@ const Index = () => {
         onTouchStart={(e) => { e.currentTarget.style.animation = "none"; e.currentTarget.style.transform = "rotate(-8deg)"; setTimeout(() => { if (e.currentTarget) { e.currentTarget.style.transform = "rotate(0deg)"; setTimeout(() => { if (e.currentTarget) e.currentTarget.style.animation = "sway-right 4.5s ease-in-out infinite"; }, 600); } }, 800); }}
       >
         <img src={macrameRight} alt="" className="w-full"
-          style={{ mixBlendMode: "multiply", filter: "contrast(1.3) saturate(1.2)", WebkitMaskImage: "linear-gradient(to left, black 0%, black 40%, transparent 100%), linear-gradient(to bottom, black 0%, black 60%, transparent 95%)", WebkitMaskComposite: "destination-in", maskImage: "linear-gradient(to left, black 0%, black 40%, transparent 100%), linear-gradient(to bottom, black 0%, black 60%, transparent 95%)", maskComposite: "intersect" }}
+          style={{ mixBlendMode: "multiply", filter: "contrast(1.2) saturate(1.1)", WebkitMaskImage: "linear-gradient(to left, black 0%, black 50%, transparent 100%), linear-gradient(to bottom, black 0%, black 70%, transparent 95%)", WebkitMaskComposite: "destination-in", maskImage: "linear-gradient(to left, black 0%, black 50%, transparent 100%), linear-gradient(to bottom, black 0%, black 70%, transparent 95%)", maskComposite: "intersect" }}
           aria-hidden="true" />
       </div>
 
