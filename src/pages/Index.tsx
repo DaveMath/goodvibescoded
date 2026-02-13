@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import arcText from "@/assets/good-vibes-coded-arc.png";
 import retroSun from "@/assets/retro-sun.png";
 import macrameLeft from "@/assets/macrame-left.png";
@@ -113,21 +113,37 @@ const Index = () => {
         </p>
       </div>
 
-      {/* Macrame plants */}
-      <img
-        src={macrameLeft}
-        alt=""
-        className="absolute bottom-0 left-0 w-[120px] sm:w-[160px] md:w-[200px] pointer-events-none"
-        style={{ zIndex: 3, mixBlendMode: "multiply", WebkitMaskImage: "linear-gradient(to right, black 40%, transparent 100%), linear-gradient(to top, black 60%, transparent 95%)", WebkitMaskComposite: "destination-in", maskImage: "linear-gradient(to right, black 40%, transparent 100%), linear-gradient(to top, black 60%, transparent 95%)", maskComposite: "intersect" }}
-        aria-hidden="true"
-      />
-      <img
-        src={macrameRight}
-        alt=""
-        className="absolute bottom-0 right-0 w-[120px] sm:w-[160px] md:w-[200px] pointer-events-none"
-        style={{ zIndex: 3, mixBlendMode: "multiply", WebkitMaskImage: "linear-gradient(to left, black 40%, transparent 100%), linear-gradient(to top, black 60%, transparent 95%)", WebkitMaskComposite: "destination-in", maskImage: "linear-gradient(to left, black 40%, transparent 100%), linear-gradient(to top, black 60%, transparent 95%)", maskComposite: "intersect" }}
-        aria-hidden="true"
-      />
+      {/* Macrame plants - hanging from top */}
+      <div
+        className="absolute top-0 left-2 sm:left-4 w-[120px] sm:w-[160px] md:w-[200px] cursor-pointer"
+        style={{ zIndex: 3, transformOrigin: "top center", transition: "transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }}
+        onMouseEnter={(e) => e.currentTarget.style.transform = "rotate(5deg)"}
+        onMouseLeave={(e) => e.currentTarget.style.transform = "rotate(0deg)"}
+        onTouchStart={(e) => { e.currentTarget.style.transform = "rotate(5deg)"; setTimeout(() => { if (e.currentTarget) e.currentTarget.style.transform = "rotate(0deg)"; }, 800); }}
+      >
+        <img
+          src={macrameLeft}
+          alt=""
+          className="w-full"
+          style={{ mixBlendMode: "multiply", WebkitMaskImage: "linear-gradient(to right, black 40%, transparent 100%), linear-gradient(to bottom, black 70%, transparent 95%)", WebkitMaskComposite: "destination-in", maskImage: "linear-gradient(to right, black 40%, transparent 100%), linear-gradient(to bottom, black 70%, transparent 95%)", maskComposite: "intersect" }}
+          aria-hidden="true"
+        />
+      </div>
+      <div
+        className="absolute top-0 right-2 sm:right-4 w-[120px] sm:w-[160px] md:w-[200px] cursor-pointer"
+        style={{ zIndex: 3, transformOrigin: "top center", transition: "transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }}
+        onMouseEnter={(e) => e.currentTarget.style.transform = "rotate(-5deg)"}
+        onMouseLeave={(e) => e.currentTarget.style.transform = "rotate(0deg)"}
+        onTouchStart={(e) => { e.currentTarget.style.transform = "rotate(-5deg)"; setTimeout(() => { if (e.currentTarget) e.currentTarget.style.transform = "rotate(0deg)"; }, 800); }}
+      >
+        <img
+          src={macrameRight}
+          alt=""
+          className="w-full"
+          style={{ mixBlendMode: "multiply", WebkitMaskImage: "linear-gradient(to left, black 40%, transparent 100%), linear-gradient(to bottom, black 70%, transparent 95%)", WebkitMaskComposite: "destination-in", maskImage: "linear-gradient(to left, black 40%, transparent 100%), linear-gradient(to bottom, black 70%, transparent 95%)", maskComposite: "intersect" }}
+          aria-hidden="true"
+        />
+      </div>
 
       {/* Footer */}
       <footer className="relative z-10 pb-6 pt-8 text-center">
