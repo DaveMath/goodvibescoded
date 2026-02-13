@@ -236,8 +236,8 @@ const Index = () => {
               transitionDuration: sunClicked ? "0.15s" : "0.8s",
               transitionTimingFunction: "ease-out",
               transitionDelay: entered && !sunClicked ? "0.2s" : "0s",
-              WebkitMaskImage: "radial-gradient(circle, black 50%, transparent 80%)",
-              maskImage: "radial-gradient(circle, black 50%, transparent 80%)",
+              WebkitMaskImage: "radial-gradient(circle, black 40%, transparent 55%)",
+              maskImage: "radial-gradient(circle, black 40%, transparent 55%)",
             }}
           />
           {/* Rotating word */}
